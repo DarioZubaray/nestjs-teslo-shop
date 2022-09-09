@@ -17,6 +17,18 @@ $ npm install
 $ yarn install
 ```
 
+## Postgres container in Docker
+
+```bash
+$ docker-compose up -d
+```
+
+## Populate database
+
+```bash
+$ curl http://localhost:3000/api/seed
+```
+
 ## Running the app
 
 ```bash
@@ -24,10 +36,3 @@ $ npm run start:dev
 ó
 $ yarn start:dev
 ```
-
-## Postgres en Docker
-
-```bash
-$ docker-compose up -d
-```
-
