@@ -9,12 +9,18 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Dependency installation
 
 ```bash
 $ npm install
 ó
 $ yarn install
+```
+
+## Setting envvironment variables
+
+```bash
+$ mv .env.template .env
 ```
 
 ## Postgres container in Docker

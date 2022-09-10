@@ -4,6 +4,9 @@
 
 .env
 postgres/
+*.jpg
+*.jpeg
+*.png
 
 # Logs
 logs
