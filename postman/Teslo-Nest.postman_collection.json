@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "5e8b925e-96c4-411b-a47c-ba3e45119585",
+		"name": "Teslo-Nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4732245"
+	},
+	"item": [
+		{
+			"name": "Products - get all with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/products?limit=100&offset=0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Get by term (id / slug / name)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/products/17dc7544-4722-4117-be54-9c26eedbb1b1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"17dc7544-4722-4117-be54-9c26eedbb1b1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Dario's shirt 11\",\n    \"sizes\": [\"SM\", \"M\", \"L\", \"XL\", \"2XL\"],\n    \"gender\": \"men\",\n    \"images\": [\n        \"https://imageshark.com/img1.png\",\n        \"https://imageshark.com/img2.jpg\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - delete by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/products/17dc7544-4722-4117-be54-9c26eedbb1b1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"17dc7544-4722-4117-be54-9c26eedbb1b1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DataBase - execute seed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/seed",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"seed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File - upload image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/dariozubaray/Downloads/150x150-image-placeholder.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/files/product",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"files",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File - get image by idName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/files/product/fbb62892-c6d8-4eee-992d-57eb5edf64c0.jpeg",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"files",
+						"product",
+						"fbb62892-c6d8-4eee-992d-57eb5edf64c0.jpeg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"dario@google.com\",\n    \"password\": \"Aa1234\",\n    \"fullName\": \"Dario\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@google.com\",\n    \"password\": \"Admin123!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - check status - renew",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmY2I1ODNlLTcyNjEtNDdkMS05Yjk3LWE1NTZiZWUwNWQ5ZCIsImlhdCI6MTY2MjkxMjg4NSwiZXhwIjoxNjYyOTIwMDg1fQ.gGRjPLBEvCGVp6gWGAJbkeoSXi5Yh9l5SERmRezV7Sk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/auth/check-auth-status",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"check-auth-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Testing - private route",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjI4NTQ3MDMsImV4cCI6MTY2Mjg2MTkwM30.c-54p4TbJPtIVfvwfGP6pps3ezMUNr-v4VD7qSjJ5os",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/auth/private",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"private"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Testing - private route with roles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwMGQ2MzY2LWViYWUtNDZmNS1hZDJiLWY5NTkxM2E3MGM0NCIsImlhdCI6MTY2Mjg1NzgyOSwiZXhwIjoxNjYyODY1MDI5fQ.EZpu85QGEPl9D-sScdCIndB27xVj7EEJvOj6sO5ys6o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/auth/private-role",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"private-role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Testing - private route with composition decorator",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAwMGQ2MzY2LWViYWUtNDZmNS1hZDJiLWY5NTkxM2E3MGM0NCIsImlhdCI6MTY2Mjg1NzgyOSwiZXhwIjoxNjYyODY1MDI5fQ.EZpu85QGEPl9D-sScdCIndB27xVj7EEJvOj6sO5ys6o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/auth/private-composition",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"private-composition"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
