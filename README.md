@@ -42,3 +42,9 @@ $ npm run start:dev
 ó
 $ yarn start:dev
 ```
+
+## Api documentation
+
+```bash
+http://localhost:3000/api
+```
