@@ -7,6 +7,7 @@ import { DataSource, Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product, ProductImage } from './entities';
+import { User } from '../auth/entities/user.entity';
 
 @Injectable()
 export class ProductsService {
@@ -23,14 +24,15 @@ export class ProductsService {
     private readonly dataSource: DataSource,
   ) {}
 
-  async create(createProductDto: CreateProductDto) {
+  async create(createProductDto: CreateProductDto, user: User) {
 
     try {
       const { images = [], ...productDeatails } = createProductDto;
 
       const producto = this.productRepository.create({
         ...productDeatails,
-        images: images.map( img => this.productImageRepository.create({ url: img }) )
+        images: images.map( img => this.productImageRepository.create({ url: img }) ),
+        user
       });
 
       await this.productRepository.save(producto);
@@ -41,7 +43,6 @@ export class ProductsService {
     }
   }
 
-  //TODO: paginar
   async findAll(paginationDto: PaginationDto) {
     const { limit = 10, offset = 5 } = paginationDto;
     const productos = await this.productRepository.find({
@@ -92,7 +93,7 @@ export class ProductsService {
     }
   }
 
-  async update(id: string, updateProductDto: UpdateProductDto) {
+  async update(id: string, updateProductDto: UpdateProductDto, user: User) {
 
     const { images, ...toUpdate} = updateProductDto;
     const product = await this.productRepository.preload({ id, ...toUpdate });
@@ -112,8 +113,10 @@ export class ProductsService {
         product.images = images.map(
           (img) => this.productImageRepository.create({ url: img })
         );
-        await queryRunner.manager.save( product );
       }
+
+      product.user = user;
+      await queryRunner.manager.save( product );
 
       await queryRunner.commitTransaction();
       await queryRunner.release();
