@@ -36,7 +36,7 @@ export class User {
 
     @BeforeUpdate()
     checkFieldsBeforeUpdate() {
-        this.checkFieldsBeforeInsert();   
+        this.checkFieldsBeforeInsert();
     }
 
 }
